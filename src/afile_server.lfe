@@ -10,5 +10,7 @@
     ((tuple from 'list_dir)
      (! from (tuple (self) (file:list_dir dir))))
     ((tuple from (tuple 'get_file file))
-     (! from (tuple (self) (file:read_file (filename:join dir file))))))
+     (! from (tuple (self) (file:read_file (filename:join dir file)))))
+    ((tuple 'put_file file content)
+     (file:write_file (filename:join dir file) content)))
   (loop dir))
